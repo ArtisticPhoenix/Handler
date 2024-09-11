@@ -1,0 +1,6 @@
+/src/exception/
+/vendor/
+/composer.lock
+/.idea/modules.xml
+/.idea/codeception.xml
+/.idea/.gitignore

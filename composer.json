@@ -1,0 +1,35 @@
+{
+	"name" : "evo/handler",
+	"description" : "Error and Exception Handler",
+	"license" : "GPL-3.0",
+	"keywords" : [
+		"debug"
+	],
+	"autoload" : {
+		"psr-4" : {
+			"evo\\" : [
+				"src/evo"
+			]
+		}
+	},
+	"support" : {
+		"wiki" : "https://github.com/ArtisticPhoenix/Handler/wiki",
+		"source" : "https://github.com/ArtisticPhoenix/Handler.git",
+		"issues" : "https://github.com/ArtisticPhoenix/Handler/issues"
+	},
+	"require" : {
+		"php" : ">=8.3",
+		"evo/patterns" : "@stable",
+		"evo/exception": "@stable"
+	},
+	"require-dev": {
+		"evo/debug": "@stable"
+	},
+	"type" : "library",
+	"authors" : [{
+			"name" : "Hugh Durham III",
+			"homepage" : "https://github.com/ArtisticPhoenix",
+			"role" : "Author"
+		}
+	]
+}
