@@ -14,6 +14,13 @@ final class ErrorHandler implements SingletonInterface
 {
     use SingletonTrait;
 
+    const string LV_NONE         = 'None';
+    const string LV_ERROR        = 'Error';
+    const string LV_WARNING      = 'Warning';
+    const string LV_DEPRECATED    = 'Deprecated';
+    const string LV_NOTICE       = 'Notice';
+    const string LV_UNKNOWN      = 'Unknown';
+
     /**
      * Track to avoid unnecessary callback sorting
      * @var bool
@@ -141,17 +148,17 @@ final class ErrorHandler implements SingletonInterface
      * Get a common "Name" for each error severity level
      *
      * @param int $severity - one of the E_* core PHP constants
-     * @return string
+     * @return string - one of the self::LV_ constants
      */
     public static function getSeverityStr(int $severity) : string
     {
         return match ($severity) {
-            0 => 'None',
-            E_USER_ERROR, E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE => 'Error',
-            E_RECOVERABLE_ERROR, E_CORE_WARNING, E_WARNING, E_COMPILE_WARNING, E_USER_WARNING, E_STRICT => 'Warning',
-            E_DEPRECATED, E_USER_DEPRECATED => 'Deprecated',
-            E_NOTICE, E_USER_NOTICE => 'Notice',
-            default => 'Unknown'
+            0 => self::LV_NONE,
+            E_USER_ERROR, E_ERROR, E_CORE_ERROR, E_COMPILE_ERROR, E_PARSE => self::LV_ERROR,
+            E_RECOVERABLE_ERROR, E_CORE_WARNING, E_WARNING, E_COMPILE_WARNING, E_USER_WARNING, E_STRICT => self::LV_WARNING,
+            E_DEPRECATED, E_USER_DEPRECATED => self::LV_DEPRECATED,
+            E_NOTICE, E_USER_NOTICE => self::LV_NOTICE,
+            default => self::LV_UNKNOWN
         };
     }
 
